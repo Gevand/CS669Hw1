@@ -94,6 +94,7 @@
             this.btnYColorSpace.TabIndex = 5;
             this.btnYColorSpace.Text = "Y (luma)";
             this.btnYColorSpace.UseVisualStyleBackColor = true;
+            this.btnYColorSpace.Click += new System.EventHandler(this.btnYColorSpace_Click);
             // 
             // btnI
             // 
@@ -103,6 +104,7 @@
             this.btnI.TabIndex = 6;
             this.btnI.Text = "I";
             this.btnI.UseVisualStyleBackColor = true;
+            this.btnI.Click += new System.EventHandler(this.btnI_Click);
             // 
             // btnCr
             // 
@@ -112,6 +114,7 @@
             this.btnCr.TabIndex = 7;
             this.btnCr.Text = "Cr";
             this.btnCr.UseVisualStyleBackColor = true;
+            this.btnCr.Click += new System.EventHandler(this.btnCr_Click);
             // 
             // btnYellow
             // 
@@ -171,6 +174,7 @@
             this.btnQ.TabIndex = 13;
             this.btnQ.Text = "Q";
             this.btnQ.UseVisualStyleBackColor = true;
+            this.btnQ.Click += new System.EventHandler(this.btnQ_Click);
             // 
             // btnCb
             // 
@@ -180,6 +184,7 @@
             this.btnCb.TabIndex = 14;
             this.btnCb.Text = "Cb";
             this.btnCb.UseVisualStyleBackColor = true;
+            this.btnCb.Click += new System.EventHandler(this.btnCb_Click);
             // 
             // btnV
             // 
@@ -189,6 +194,7 @@
             this.btnV.TabIndex = 16;
             this.btnV.Text = "V";
             this.btnV.UseVisualStyleBackColor = true;
+            this.btnV.Click += new System.EventHandler(this.btnV_Click);
             // 
             // btnU
             // 
@@ -198,6 +204,7 @@
             this.btnU.TabIndex = 15;
             this.btnU.Text = "U";
             this.btnU.UseVisualStyleBackColor = true;
+            this.btnU.Click += new System.EventHandler(this.btnU_Click);
             // 
             // frmMain
             // 
