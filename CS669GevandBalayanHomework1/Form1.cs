@@ -16,10 +16,14 @@ namespace CS669GevandBalayanHomework1
         public frmMain()
         {
             InitializeComponent();
-            InitButtons();
+
             string fileName = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"images\test.jpg");
             if (System.IO.File.Exists(fileName))
+            {
                 pictInput.Image = new Bitmap(fileName);
+                imageLoaded = true;
+            }
+            InitButtons();
         }
 
         private enum ColorCode
@@ -44,6 +48,9 @@ namespace CS669GevandBalayanHomework1
 
             btnI.Enabled = imageLoaded;
             btnQ.Enabled = imageLoaded;
+
+            btnCr.Enabled = imageLoaded;
+            btnCb.Enabled = imageLoaded;
         }
         private Bitmap GenerateBitmap(ColorCode input)
         {
@@ -83,7 +90,7 @@ namespace CS669GevandBalayanHomework1
                         {
                             var pixel = returnedBitmap.GetPixel(i, j);
                             int black = Math.Min(Math.Min(255 - pixel.R, 255 - pixel.B), 255 - pixel.G);
-                            int cyan = (255 - pixel.R - black) % (255 - black);
+                            int cyan = black == 255 ? 255 : (255 - pixel.R - black) % (255 - black);
                             var newPixel = Color.FromArgb(cyan, cyan, cyan);
                             returnedBitmap.SetPixel(i, j, newPixel);
                         }
@@ -94,7 +101,7 @@ namespace CS669GevandBalayanHomework1
                         {
                             var pixel = returnedBitmap.GetPixel(i, j);
                             int black = Math.Min(Math.Min(255 - pixel.R, 255 - pixel.B), 255 - pixel.G);
-                            int magenta = (255 - pixel.G - black) % (255 - black);
+                            int magenta = black == 255 ? 255 : (255 - pixel.G - black) % (255 - black);
                             var newPixel = Color.FromArgb(magenta, magenta, magenta);
                             returnedBitmap.SetPixel(i, j, newPixel);
                         }
@@ -105,7 +112,7 @@ namespace CS669GevandBalayanHomework1
                         {
                             var pixel = returnedBitmap.GetPixel(i, j);
                             int black = Math.Min(Math.Min(255 - pixel.R, 255 - pixel.B), 255 - pixel.G);
-                            int yellow = (255 - pixel.B - black) % (255 - black);
+                            int yellow = black == 255 ? 255 : (255 - pixel.B - black) % (255 - black);
                             var newPixel = Color.FromArgb(yellow, yellow, yellow);
                             returnedBitmap.SetPixel(i, j, newPixel);
                         }

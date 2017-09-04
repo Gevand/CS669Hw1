@@ -162,7 +162,7 @@
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(96, 23);
             this.btnStart.TabIndex = 12;
-            this.btnStart.Text = "Start";
+            this.btnStart.Text = "New File";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
