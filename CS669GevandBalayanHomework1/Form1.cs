@@ -19,7 +19,10 @@ namespace CS669GevandBalayanHomework1
             InitButtons();
         }
 
-        private enum ColorCode { R, G, B, Yluma, I, Q, Cr, Cb, U, V, C, M, Y, K }
+        private enum ColorCode
+        {
+            R, G, B, Yluma, I, Q, Cr, Cb, U, V, C, M, Y, K
+        }
         private void InitButtons()
         {
             btnRed.Enabled = imageLoaded;
@@ -111,16 +114,19 @@ namespace CS669GevandBalayanHomework1
             }
             return returnedBitmap;
         }
-        private void GenerateNewForm(Bitmap bmp)
+        private void GenerateNewForm(Bitmap bmp, string title)
         {
+
             Form tempForm = new Form();
             tempForm.Height = this.Height;
             tempForm.Width = this.Width;
+            tempForm.Text = title;
             PictureBox tempBox = new PictureBox();
             tempBox.Image = bmp;
             tempBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             tempForm.Controls.Add(tempBox);
             tempForm.Show();
+
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -150,37 +156,73 @@ namespace CS669GevandBalayanHomework1
 
         private void btnRed_Click(object sender, EventArgs e)
         {
-            GenerateNewForm(GenerateBitmap(ColorCode.R));
+            Bitmap bmp = new Bitmap(1, 1);
+            Task.Factory.StartNew(() =>
+            {
+                bmp = GenerateBitmap(ColorCode.R);
+            }).ContinueWith(t => GenerateNewForm(bmp, "Red"), TaskScheduler.FromCurrentSynchronizationContext());
+
+
         }
 
         private void btnGreen_Click(object sender, EventArgs e)
         {
-            GenerateNewForm(GenerateBitmap(ColorCode.G));
+            Bitmap bmp = new Bitmap(1, 1);
+            Task.Factory.StartNew(() =>
+            {
+                bmp = GenerateBitmap(ColorCode.G);
+            }).ContinueWith(t => GenerateNewForm(bmp, "Green"), TaskScheduler.FromCurrentSynchronizationContext());
         }
 
         private void btnBlue_Click(object sender, EventArgs e)
         {
-            GenerateNewForm(GenerateBitmap(ColorCode.B));
+            Bitmap bmp = new Bitmap(1, 1);
+            Task.Factory.StartNew(() =>
+            {
+                bmp = GenerateBitmap(ColorCode.B);
+            }).ContinueWith(t => GenerateNewForm(bmp, "Blue"), TaskScheduler.FromCurrentSynchronizationContext());
+
         }
 
         private void btnCyan_Click(object sender, EventArgs e)
         {
-            GenerateNewForm(GenerateBitmap(ColorCode.C));
+            Bitmap bmp = new Bitmap(1, 1);
+            Task.Factory.StartNew(() =>
+            {
+                bmp = GenerateBitmap(ColorCode.C);
+            }).ContinueWith(t => GenerateNewForm(bmp, "Cyan"), TaskScheduler.FromCurrentSynchronizationContext());
+
+
         }
 
         private void btnMagenta_Click(object sender, EventArgs e)
         {
-            GenerateNewForm(GenerateBitmap(ColorCode.M));
+            Bitmap bmp = new Bitmap(1, 1);
+            Task.Factory.StartNew(() =>
+            {
+                bmp = GenerateBitmap(ColorCode.M);
+            }).ContinueWith(t => GenerateNewForm(bmp, "Magenta"), TaskScheduler.FromCurrentSynchronizationContext());
+
         }
 
         private void btnYellow_Click(object sender, EventArgs e)
         {
-            GenerateNewForm(GenerateBitmap(ColorCode.Y));
+            Bitmap bmp = new Bitmap(1, 1);
+            Task.Factory.StartNew(() =>
+            {
+                bmp = GenerateBitmap(ColorCode.Y);
+            }).ContinueWith(t => GenerateNewForm(bmp, "Yellow"), TaskScheduler.FromCurrentSynchronizationContext());
+
         }
 
         private void btnBlack_Click(object sender, EventArgs e)
         {
-            GenerateNewForm(GenerateBitmap(ColorCode.K));
+            Bitmap bmp = new Bitmap(1, 1);
+            Task.Factory.StartNew(() =>
+            {
+                bmp = GenerateBitmap(ColorCode.K);
+            }).ContinueWith(t => GenerateNewForm(bmp, "K - Black"), TaskScheduler.FromCurrentSynchronizationContext());
+
         }
     }
 }
